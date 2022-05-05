@@ -1,14 +1,21 @@
 package src;
 
+import javax.crypto.spec.PSource.PSpecified;
+
 public class Banking {
     private String firstName;
     private String lastName;
     private double balance;
+    private int typeOfAccount;
 
-    public Banking(String firstName, String lastName, double balance) {
+    public static final int CHECKING = 1;
+    public static final int SAVIINGS = 2;
+
+    public Banking(String firstName, String lastName, double balance, int typeOfAccount) {
         this.firstName = firstName;;
         this.lastName = lastName;
         this.balance = balance;
+        this.typeOfAccount = typeOfAccount;
     }
 
  //Arguement true if customer is performing transaction at branch with teller.
@@ -25,5 +32,9 @@ public class Banking {
 
     public double getBalance() {
         return balance;
+    }
+
+    public boolean isChecking() {
+        return typeOfAccount == CHECKING;
     }
 }
